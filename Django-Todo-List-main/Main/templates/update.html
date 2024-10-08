@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update todo</title>
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+</head>
+<body>
+    <header>
+        <h1>Update todo</h1>
+    </header>
+    <main>
+        <label>{{todo.title}}</label><br><br>
+        <form class="form-container" action="{%url 'update_todo' todo.id%}" method="post">
+            {%csrf_token%}
+            <input class="todo-input" type="text" name="todo_text" placeholder="Enter todo...">
+            <input class="todo-submit" type="submit" value="Update">
+        </form>
+    </main>
+</body>
+</html>
